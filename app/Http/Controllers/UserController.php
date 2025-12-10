@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -26,35 +27,41 @@ class UserController extends Controller
         return view('profile.index', compact('user', 'bookmarks', 'history'));
     }
 
-    public function update(Request $request)
+public function update(Request $request)
     {
-        $request->validate([
-            'name'          => 'required|min:3',
-            'profile_image' => 'nullable|image|max:2048'
-        ]);
-
-        /** @var User|null $user */
         $user = Auth::user();
 
-        if (! $user) {
-            return redirect()->route('login');
-        }
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'profile_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg',
+            'password' => 'nullable|min:6'
+        ]);
 
-        // update name
+        // Update nama
         $user->name = $request->name;
 
-        // update profile image jika ada
+        // Update foto profil
         if ($request->hasFile('profile_image')) {
 
-            $file = $request->file('profile_image');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('profiles'), $filename);
+            // Hapus foto lama jika ada
+            if ($user->profile_image && file_exists(public_path($user->profile_image))) {
+                unlink(public_path($user->profile_image));
+            }
 
-            $user->profile_image = 'profiles/' . $filename;
+            $file = $request->file('profile_image');
+            $path = $file->store('profile_images', 'public');
+
+            $user->profile_image = 'storage/' . $path;
+        }
+
+        // Update password jika diisi
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
         }
 
         $user->save();
 
-        return back();
+        return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
     }
 }

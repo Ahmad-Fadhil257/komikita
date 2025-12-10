@@ -12,7 +12,6 @@ class Genre extends Model
 
     public function comics()
     {
-        return $this->hasMany(Comic::class);
+        return $this->hasMany(Comics::class);
     }
 }
-    
