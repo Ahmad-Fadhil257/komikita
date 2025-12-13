@@ -1,10 +1,6 @@
 # 📚 Komikita
 
 <p align="center">
-  <img src="assets/logo-komikita.png" alt="Komikita Logo" width="200"/>
-</p>
-
-<p align="center">
   <b>Komikita</b> adalah platform manajemen dan membaca komik digital yang dirancang untuk memberikan pengalaman terbaik bagi pembaca maupun administrator.  
   Aplikasi ini dilengkapi dengan sistem autentikasi, dashboard berbasis role, serta fitur bookmark untuk kemudahan akses komik favorit.
 </p>
@@ -68,7 +64,6 @@
 ---
 
 ## 📄 Dokumentasi Proyek
-
 📌 **Dokumentasi lengkap tersedia dalam bentuk PDF**  
-Silakan tambahkan file PDF pada folder berikut:
 
+[projek laravel.pdf](https://github.com/user-attachments/files/24142054/projek.laravel.pdf)
