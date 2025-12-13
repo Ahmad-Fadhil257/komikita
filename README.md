@@ -18,10 +18,9 @@
 #### 🛠️ Dashboard Admin
 - Kelola data komik (CRUD)
 - Mengelola konten komik secara penuh
-- Akses penuh terhadap sistem
 
 #### 🙋 Dashboard Member
-- Melihat dan membaca komik
+- Melihat komik
 - Menambahkan komik ke bookmark
 - Mengelola profil pribadi
 
@@ -44,22 +43,11 @@
 ### 👤 Manajemen Profil
 - Mengganti foto profil
 - Mengubah password akun
-- Menjaga privasi dan keamanan akun pengguna
 
 ---
 
 ### 🔖 Bookmark
 - Menyimpan komik favorit
-- Akses cepat ke komik yang sering dibaca
-
----
-
-## 🛠️ Teknologi yang Digunakan
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: *(Sesuaikan: Laravel / PHP Native / Node.js / dll)*
-- **Database**: MySQL
-- **Authentication**: Session / JWT
-- **Storage**: Local / Cloud Storage
 
 ---
 
